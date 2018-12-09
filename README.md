@@ -1,6 +1,7 @@
 # HIRLib
 
-HIRLib is JQuery(JavaScript) Canvas Base Library.
+HIRLib is HTML5 Canvas Library.
+This library use jQuery(JavaScript).
 
 * HIRLib
   * Library directory
