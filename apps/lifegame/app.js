@@ -12,7 +12,8 @@ var APP = {};
 // 列挙、定数
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 APP.ANIM_CNT_MAX = 60;		// アニメカウンタ最大値
-APP.ANIM_END_WAIT_CNT_MAX = 60;	// アニメ終了後のウェイトカウンタ最大値
+APP.ANIM_END_WAIT_CNT_MAX = 90;	// アニメ終了後のウェイトカウンタ最大値
+APP.RESET_GENERATION = (APP.ANIM_CNT_MAX + APP.ANIM_END_WAIT_CNT_MAX) * 200;
 
 // モード
 APP.MODE =
@@ -56,6 +57,7 @@ APP.mCells;			// セル
 APP.mTimer;		// タイマ
 APP.mState;		// 状態
 APP.mCnt;			// カウンタ
+APP.mResetGenerationCnt;	// リセットカウンタ
 
 
 
@@ -89,6 +91,18 @@ APP.CellInit = function()
 		elm.mSprite.mIsVisible = false;
 
 		APP.mCells.push(elm);
+	}
+}
+
+/**
+ * 解放
+ */
+APP.CellRelease = function()
+{
+	for(i = 0; i < APP.CELL_NUM; i++)
+	{
+		var elm = APP.mCells[i];
+		HIRSpriteManager.Delete(elm.mSprite);
 	}
 }
 
@@ -401,6 +415,7 @@ APP.Init = function(str)
 	APP.mMode = mode;
 	APP.mState = APP.STATE.NONE;
 	APP.mCnt = 0;
+	APP.mResetGenerationCnt = 0;
 	APP.CellInit();					// セルを初期化する
 	APP.CellRandomSet();		// セルをランダムセットする
 
@@ -415,6 +430,16 @@ APP.Init = function(str)
 APP.Update = function()
 {
 	APP.CellUpdate();		// セルを更新する
+
+	if(APP.mResetGenerationCnt++ < APP.RESET_GENERATION) return;
+	
+	// リセット
+	APP.mState = APP.STATE.NONE;
+	APP.mCnt = 0;
+	APP.mResetGenerationCnt = 0;
+	APP.CellRelease();			// セルを解放する
+	APP.CellInit();					// セルを初期化する
+	APP.CellRandomSet();		// セルをランダムセットする
 }
 
 /**
