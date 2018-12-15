@@ -14,6 +14,7 @@ var APP = {};
 APP.ANIM_CNT_MAX = 60;		// アニメカウンタ最大値
 APP.ANIM_END_WAIT_CNT_MAX = 90;	// アニメ終了後のウェイトカウンタ最大値
 APP.RESET_GENERATION = (APP.ANIM_CNT_MAX + APP.ANIM_END_WAIT_CNT_MAX) * 200;
+// APP.RESET_GENERATION = (APP.ANIM_CNT_MAX + APP.ANIM_END_WAIT_CNT_MAX) * 270;
 
 // モード
 APP.MODE =
@@ -42,6 +43,8 @@ APP.CELL_HEIGHT = 24;
 // 個数
 APP.CELL_NUM_X = 24;
 APP.CELL_NUM_Y = 24;
+// APP.CELL_NUM_X = 60;
+// APP.CELL_NUM_Y = 32;
 APP.CELL_NUM = APP.CELL_NUM_X * APP.CELL_NUM_Y;
 
 // 密度
@@ -405,8 +408,8 @@ APP.Init = function(str)
 	var sysParam = HIRSystemParameter.Default();
 	// sysParam.mDebug = true;
 	sysParam.mCallbackUpdate = APP.Update;
-	sysParam.mCanvasWidth = APP.CELL_WIDTH * APP.CELL_NUM_X;
-	sysParam.mCanvasHeight = APP.CELL_HEIGHT * APP.CELL_NUM_Y;
+	sysParam.mCanvasWidth = APP.CELL_WIDTH * APP.CELL_NUM_X + APP.CELL_HEIGHT * 0.5;
+	sysParam.mCanvasHeight = APP.CELL_HEIGHT * APP.CELL_NUM_Y + APP.CELL_HEIGHT * 0.5;
 	sysParam.mCanvasColor = APP.CanvasColor(mode);
 	HIRSystemManager.Init(sysParam);
 
