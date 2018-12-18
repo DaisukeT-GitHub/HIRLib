@@ -7,7 +7,3 @@ This library use jQuery(JavaScript).
   * Library directory
 * apps
   * library use sample code
-
-sample
-https://tetsugaku.info/app/js/apps/lifegame/index.html?mode=pastel
-
