@@ -1,7 +1,7 @@
 /**
  * monty-hall/app.js
  *
- * Copyright © 2018 tetsugaku.info.
+ * Copyright © 2018 daisuke.t.
  */
 
 var APP = {};

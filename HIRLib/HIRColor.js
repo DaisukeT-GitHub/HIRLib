@@ -1,7 +1,7 @@
 /**
  * HIRColor.js
  *
- * Copyright © 2018 tetsugaku.info.
+ * Copyright © 2018 daisuke.t.
  */
 var HIRColor = {};
 HIRColor = function(){}	// new 演算子用コンストラクタ

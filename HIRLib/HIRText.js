@@ -1,7 +1,7 @@
 /**
  * HIRText.js
  *
- * Copyright © 2018 tetsugaku.info.
+ * Copyright © 2018 daisuke.t.
  */
 var HIRText = {};
 HIRText = function(){}	// new 演算子用コンストラクタ

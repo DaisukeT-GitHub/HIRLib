@@ -1,7 +1,7 @@
 /**
  * HIRSystemParameter.js
  *
- * Copyright © 2018 tetsugaku.info.
+ * Copyright © 2018 daisuke.t.
  */
 var HIRSystemParameter = {};
 HIRSystemParameter = function(){}	// new 演算子用コンストラクタ
